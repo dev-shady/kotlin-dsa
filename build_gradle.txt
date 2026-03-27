@@ -1,0 +1,38 @@
+plugins {
+    // Downgrade from 2.0.0 to 1.9.24 to stop the crash
+    id 'org.jetbrains.kotlin.jvm' version '1.9.24'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    // If your file is Hello.kt and has NO package, use 'HelloKt'
+    // If your file is in 'package com.example', use 'com.example.HelloKt'
+    mainClass = 'HelloKt' 
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceSets {
+    main {
+        kotlin {
+            srcDirs = ['lang', 'dsa']
+        }
+    }
+
+    test {
+        kotlin { srcDirs = ['test'] } // Create a 'test' folder for your tests
+    }
+}
