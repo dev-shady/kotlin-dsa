@@ -1,3 +1,4 @@
+package dsa.mustDo.tree.bstFromPreOrder
 fun main() {
     println("Construct BST from Pre Order Travsersal")
     val node = buildBST(intArrayOf(10, 5, 1, 7, 40, 50))

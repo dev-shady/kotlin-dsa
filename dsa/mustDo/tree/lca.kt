@@ -1,3 +1,5 @@
+package dsa.mustDo.tree.lca
+
 fun main() {
     println("Lowest Common Ancestor of two nodes")
 
