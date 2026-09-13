@@ -36,6 +36,25 @@ class LongestSubstringWithoutDuplicate {
         return maxLength
     }
 
+    fun lengthOfLongestSubstringOptimized(s: String): Int {
+    var maxLength = 0
+    var start = 0
+    val cache = mutableMapOf<Char, Int>()
+
+    for (i in 0 until s.length) {
+        // If the character is in our current window, jump start past its last position
+        if (cache.containsKey(s[i]) && cache[s[i]]!! >= start) {
+            start = cache[s[i]]!! + 1
+        }
+        
+        // Always update the most recent position of the character
+        cache[s[i]] = i
+        maxLength = maxOf(maxLength, i - start + 1)
+    }
+    return maxLength
+}
+
+
 }
 
 fun main() {
